@@ -1,3 +1,4 @@
+import 'package:teledart/model.dart';
 import 'package:teledart/teledart.dart';
 import 'package:teledart/telegram.dart';
 
@@ -10,7 +11,11 @@ void main() async {
   bot.start();
 
   bot.onCommand().listen((command) {
-    command.reply("Hello");
+    command.reply("Hello", replyMarkup: InlineKeyboardMarkup(inlineKeyboard: <List<InlineKeyboardButton>>[
+      [
+        InlineKeyboardButton(text: "text", callbackData: "text"),
+      ]
+    ]));
   });
 
 }
